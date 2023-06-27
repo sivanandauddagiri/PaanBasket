@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - PaanLicious</title>
+    <link rel="icon" type="image/jpg" href="images/logo 2.jpg">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/CSS/Test0.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            background-image: url("images/bg.jpg");
+            margin: 0;
+            padding: 20px;
+        }
+
+        .content {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 0 auto;
+            max-width: 50%;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            font-weight: bold;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .form-button {
+            text-align: center;
+        }
+
+        .submit-button {
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .submit-button:hover {
+            background-color: #555;
+        }
+
+        .contact-info {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .location-info {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .map-container {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        #map {
+            width: 100%;
+            height: 400px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>Contact PaanLicious</h1>
+        <form>
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" class="form-control" rows="5" required></textarea>
+            </div>
+            <div class="form-button">
+                <button type="submit" class="submit-button">Submit</button>
+            </div>
+        </form>
+        <hr>
+        <div class="contact-info">
+            <h2>Contact Information</h2>
+            <div class="container">
+                <p><strong>Email:</strong> info@paanlicious.com</p>
+                <p><strong>Phone:</strong> +1 123-456-7890</p>
+            </div>
+        </div>
+        <hr>
+        <div class="location-info">
+            <h2>Location Information</h2>
+            <div class="container">
+                <p><strong>Address:</strong></p>
+                <p>Rajaveedhi, Veerabhadrapeta, Lakkavarapukota</p>
+                <p>Vizianagaram, Andhra Pradesh, 535250</p>
+            </div>
+        </div>
+        <hr>
+        <div class="map-container">
+            <h2>In Maps</h2>
+            <div id="map"></div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize and add the map
+        function initMap() {
+            // The location of the PaanLicious store
+            var paanLiciousLocation = { lat: 18.04329634386084, lng: 83.1998068839116 };
+            // The map, centered at PaanLicious
+            var map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 14,
+                center: paanLiciousLocation,
+            });
+            // The marker, positioned at PaanLicious
+            var marker = new google.maps.Marker({
+                position: paanLiciousLocation,
+                map: map,
+            });
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+</body>
+</html>
